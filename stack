@@ -1,0 +1,61 @@
+#include<stdio.h>
+#define max 100
+int stack[10];
+void push();
+int pop();
+int peek();
+int top=-1;
+int main()
+{
+    
+    int ele,ch,i;
+    do
+    {
+    printf("1push 2 pop 3 peek choice");
+    scanf("%d",&ch);
+    
+    switch(ch)
+    {
+        case 1:printf("enter an ele to push");
+               scanf("%d",&ele);
+               push(ele);
+               break;
+        case 2:printf("poped is %d",pop());
+               break;
+        case 3:printf("peek is %d",peek());
+               break;
+        default:printf("invalid choice");
+    }
+    printf("enter 1 to continue");
+    scanf("%d",&i);
+    }while(i==1);
+return 0;
+}
+void push(int ele)
+{
+    if(top==max-1)
+    {
+        printf(" stack overflow");
+    }
+    else
+    {
+          stack[++top]=ele;
+          printf("the pushed element is%d",ele);
+    }
+}
+int pop()
+{
+    if(top==-1)
+    {
+        printf("underflow");
+    }
+    else
+    {
+        return (stack[top--]);
+        
+    }
+}
+int peek()
+{
+  return (stack[top]);
+}
